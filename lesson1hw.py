@@ -2,6 +2,15 @@
 #
 # 1)написати прогу яка вибирає зі введеної строки цифри і виводить їх через кому,
 # наприклад:
+
+def square(n):
+    for i in range(n):
+        if i == 0 or i == n - 1:
+            print('*' * n)
+        else:
+            print('*' + '' * (n - 2) + '*')
+
+
 # st = 'as 23 fdfdg544'
 # print([ch for ch in st if ch.isdigit()])
 
@@ -64,9 +73,23 @@
 #     return max(numbers)
 
 # - створити функцію яка повертає найменьше число з ліста
+# def man_from_list(numbers):
+#     return min(numbers)
 
 # - створити функцію яка приймає ліст чисел та складає значення елементів ліста та повертає його.
-# - створити функцію яка приймає ліст чисел та повертає середнє арифметичне його значень.
+
+
+# def summa(numbers):
+#     s = 0
+#     for i in numbers:
+#         s += i
+#         return s
+#     return sum(numbers)
+#  створити функцію яка приймає ліст чисел та повертає середнє арифметичне його значень.
+
+# def avg(numbers):
+#     return sum(numbers) / len(numbers)
+
 #
 #
 #
@@ -82,14 +105,30 @@
 # 2) вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
 # 3) вывести табличку множення за допомогою цикла while
 # # 4) переробити це завдання під меню
-numbers = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+# numbers = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
 
 
 # def min_num():
 #     arr = numbers.copy()
 #     print(min(arr))
 
-def dublicate():
-    arr = numbers.copy()
-    print(list(set(arr)))
+# def dublicate():
+#     arr = numbers.copy()
+#     print(list(set(arr)))
 
+# noinspection PyTypeChecker
+# def to_x():
+#     arr = numbers.copy()
+#     for i in range(3, len(arr), 4):
+#         arr[i] = 'X'
+#
+#         print(arr)
+#         to_x()
+
+def square(n):
+    for i in range(n):
+        if i == 0 or i == n - 1:
+            print('*' * n)
+        else:
+            print('*' + '' * (n - 2) + '*')
+            return square(n)
