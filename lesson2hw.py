@@ -28,18 +28,45 @@ from typing import Callable
 # 3) створити функцію котра буде повертати сумму розрядів числа у вигляді строки (також використовуемо типізацію)
 ## Приклад:
 #
-# expanded_form(12) # return '10 + 2'
-# expanded_form(42) # return '40 + 2'
-# expanded_form(70304) # return '70000 + 300 + 4'
+ # expanded_form(12) # return '10 + 2'
+ # expanded_form(42) # return '40 + 2'
+ # expanded_form(70304) # return '70000 + 300 + 4'
+ # def expanded_form(num:int) -> str:
+ #
+ #     st = str(num)
+ #
+ #     return ' + '.join(ch + '0'*(len(st)-i-1) for i, ch in enumerate(st) if ch != '0')+f' = {st}'
+ #
+ #
+ # print(expanded_form(10102255159))
 
-def expanded_form(num:int) -> str:
+# 4) створити декоратор котрий буде підраховувати скільки разів була запущена функція
+# продекорована цим декоратором, та буде виводити це значення після виконання функцій
 
+def count_decor(func):
+    count = 0
+
+    def inner(*args, **kwargs):
+        nonlocal count
+        count+=1
+        res = func(*args, **kwargs)
+        print(f'{count}')
+        print('*'*20)
+        return res
+    return inner
+
+@count_decor
+
+def expanded_form(num: int) -> str:
     st = str(num)
+    print(st)
 
-    return [ch + '0'*(len(st)-i-1) for i, ch in enumerate(st)]
+    return ' + '.join(ch + '0' * (len(st) - i - 1) for i, ch in enumerate(st) if ch != '0') + f' = {st}'
 
 
-print(expanded_form(25))
-
+expanded_form(2525)
+expanded_form(10)
+expanded_form(1)
+expanded_form(1000010)
 
 
